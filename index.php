@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 
 <?php
+
+//  Define Database
     define ( 'DB_HOST', 'localhost' );
     define ( 'DB_USER', 'root' );
     define ( 'DB_PASSWORD', '' );
     define ( 'DB_NAME', 'login_practice' );
+
+//  Print Post, <pre> tag formats it
+
     echo "<pre>";
     print_r($_POST);
     echo "</pre>";
 
-    $mysqli = mysqli_init();
-    if (!$mysqli) {
-        die('mysqli_init failed');
+// mySQLi
+
+    $mysqli = new mysqli("localhost", "root", "", "login_practice");
+
+//    SQL Statement
+
+    $sql = 'INSERT INTO users (username, password)
+    VALUES ("'.$_POST["username"].'", "'.$_POST["password"].'")';
+
+//    Print SQL statement
+    echo $sql;
+
+//  mySQL Query
+
+    $result = $mysqli->query($sql);
+
+//  Redirect
+
+    if (!$result) {
+        echo "Please enter valid username and password";
+    }
+    else{
+        header('location: user_page.php');
     }
 
-    if (!$mysqli->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 0')) {
-        die('Setting MYSQLI_INIT_COMMAND failed');
-    }
-
-    if (!$mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 5)) {
-        die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
-    }
-
-    if (!$mysqli->real_connect('localhost', 'root', '', 'login_practice')) {
-        die('Connect Error (' . mysqli_connect_errno() . ') '
-            . mysqli_connect_error());
-    }
-
-    echo 'Success... ' . $mysqli->host_info . "\n";
-
+//  Close connection
     $mysqli->close();
 
 ?>
