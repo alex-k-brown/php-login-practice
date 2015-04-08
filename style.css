@@ -53,6 +53,38 @@ td {
 
 }
 
+.s-delete {
+
+    background: mediumpurple;
+    border: none;
+    color: white;
+    width: 100%;
+    border-radius: 5%;
+
+}
+
+.s-delete:hover {
+
+    background: purple;
+
+}
+
+.r-delete {
+
+    background: indianred;
+    border: none;
+    color: white;
+    width: 100%;
+    border-radius: 5%;
+
+}
+
+.r-delete:hover {
+
+    background: darkred;
+
+}
+
 .new-name {
 
     float: right;
