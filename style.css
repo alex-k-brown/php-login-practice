@@ -1,5 +1,6 @@
 table {
 
+    border-collapse: collapse;
     /*border: 2px solid black;*/
     
 }
@@ -49,6 +50,38 @@ td {
     background-color: transparent;
     float: right;
     margin: 0 0 0 5px;
+
+}
+
+.s-delete {
+
+    background: mediumpurple;
+    border: none;
+    color: white;
+    width: 100%;
+    border-radius: 5%;
+
+}
+
+.s-delete:hover {
+
+    background: purple;
+
+}
+
+.r-delete {
+
+    background: indianred;
+    border: none;
+    color: white;
+    width: 100%;
+    border-radius: 5%;
+
+}
+
+.r-delete:hover {
+
+    background: darkred;
 
 }
 
